@@ -1,6 +1,21 @@
-base_model:
-  n_layers: 6
+model:
+  src_vocab_size: 37000
+  tgt_vocab_size: 37000
   d_model: 512
+  num_heads: 8
+  num_layers: 6
   d_ff: 2048
-  n_heads: 8
+  max_len: 5000
   dropout: 0.1
+
+training:
+  batch_size: 128
+  num_epochs: 100
+  warmup_steps: 4000
+  label_smoothing: 0.1
+  max_tokens_per_batch: 25000
+
+optimizer:
+  type: Adam
+  betas: [0.9, 0.98]
+  eps: 1e-9
